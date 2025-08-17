@@ -1,7 +1,8 @@
-Young4ChickS
-Young4ChickS is a web application built with Node.js, Express, MongoDB, and Pug for managing poultry requests. It supports three user roles: Customer, Sales Representative (Rep), and Manager, allowing users to register with a specific role, submit requests for poultry (e.g., layers, broilers), approve requests, and manage stock. The app features a vibrant UI with green gradients and the Inter font.
-Features
 
+# Young4Chicks
+Young4ChickS is a web application built with Node.js, Express, MongoDB, and Pug for managing poultry requests. It supports three user roles: Customer, Sales Representative (Rep), and Manager, allowing users to register with a specific role, submit requests for poultry (e.g., layers, broilers), approve requests, and manage stock. The app features a vibrant UI with green gradients and the Inter font.
+
+# Features
 User Registration and Login: Users can register with a role (customer, rep, manager) and log in to access role-specific dashboards.
 Customer: Submit poultry requests (/customer/request) and view requests (/customer/requests).
 Rep: Record requests (/rep/request) and mark them as complete (/rep/complete).
@@ -9,14 +10,14 @@ Manager: Approve/reject requests (/manager/approve) and manage stock (/manager/s
 Notifications: Users receive notifications for request submissions and updates.
 Unauthenticated Routes: All routes are currently unprotected for debugging (authentication middleware removed).
 
-Technologies
-
+# Technologies
 Backend: Node.js, Express
 Frontend: Pug, CSS (Inter font, green gradients)
 Database: MongoDB (MongoDB Atlas)
 Dependencies: express, mongoose, jsonwebtoken, bcrypt (or bcryptjs), pug, nodemon, dotenv
 
-Project Structure
+# Project Structure
+
 young4chicks-project/
 ├── public/
 │   ├── css/styles.css      # Vibrant CSS with green gradients
@@ -45,19 +46,19 @@ young4chicks-project/
 ├── app.js                  # Main app
 └── package.json
 
-Setup Instructions
+# Setup Instructions
 
 Clone the Repository:
 git clone <repository-url>
 cd young4chicks-project
 
 
-Install Dependencies:
+# Install Dependencies:
 npm install
 
 Install bcrypt or bcryptjs:
 npm install bcrypt
-# OR
+OR
 npm install bcryptjs
 
 
@@ -71,9 +72,9 @@ Start MongoDB:Ensure MongoDB Atlas is accessible or run a local MongoDB instance
 mongod
 
 
-Start the Server:
+# Start the Server:
 npm start
-# OR with nodemon
+OR with nodemon
 nodemon app.js
 
 Access the app at http://localhost:3000.
@@ -109,19 +110,19 @@ Manager: testmanager@example.com / Test123!
 
 
 
-Customer Actions:
+# Customer Actions:
 
 Submit request: http://localhost:3000/customer/request (e.g., layers, local, 100, experienced).
 View requests: http://localhost:3000/customer/requests.
 
 
-Rep Actions:
+# Rep Actions:
 
 Record request: http://localhost:3000/rep/request.
 Complete request: http://localhost:3000/rep/complete.
 
 
-Manager Actions:
+# Manager Actions:
 
 Approve/reject: http://localhost:3000/manager/approve.
 Add stock: http://localhost:3000/manager/stock.
@@ -129,7 +130,7 @@ View stock: http://localhost:3000/manager/stocks.
 
 
 
-Debugging
+# Debugging
 
 Form Submission Issue (/customer/request):
 
@@ -159,7 +160,7 @@ Update public/js/main.js:body: new URLSearchParams({
 
 
 
-Database Check:
+# Database Check:
 mongosh "mongodb+srv://bernardtambo40:<password>@cluster0.<id>.mongodb.net/young4chicks"
 
 use young4chicks
@@ -169,7 +170,7 @@ db.notifications.find().pretty()
 
 
 
-Notes
+# Notes
 
 Routes are currently unauthenticated for debugging. Re-enable authMiddleware in routes/ files for production.
 Ensure styles.css and main.js are loaded in views/layouts/main.pug:link(rel='stylesheet', href='/css/styles.css')
