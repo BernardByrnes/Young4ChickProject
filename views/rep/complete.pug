@@ -1,0 +1,31 @@
+extends ../layouts/main
+
+block content
+  h1 Complete Requests
+  if requests.length
+    table
+      thead
+        tr
+          th Type
+          th Breed
+          th Quantity
+          th Farmer Type
+          th Status
+          th Action
+      tbody
+        each request in requests
+          tr
+            td= request.type
+            td= request.breed
+            td= request.quantity
+            td= request.farmerType
+            td= request.status
+            td
+              form(method='POST', action='/rep/complete')
+                input(type='hidden', name='requestId', value=request._id)
+                button(type='submit') Complete
+  else
+    p No approved requests to complete.
+  p
+    a(href='/rep/requests', class='button') View Requests
+    a(href='/rep/dashboard', class='button') Back to Dashboard

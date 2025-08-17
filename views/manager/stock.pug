@@ -1,0 +1,26 @@
+extends ../layouts/main
+
+block content
+  h1 Add Stock
+  if error
+    p.error= error
+  form(method='POST', action='/manager/stock')
+    div
+      label(for='type') Type
+      select#type(name='type', required)
+        option(value='') Select Type
+        option(value='layers') Layers
+        option(value='broilers') Broilers
+    div
+      label(for='breed') Breed
+      select#breed(name='breed', required)
+        option(value='') Select Breed
+        option(value='local') Local
+        option(value='exotic') Exotic
+    div
+      label(for='quantity') Quantity
+      input#quantity(name='quantity', type='number', min='1', required)
+    button(type='submit') Add Stock
+  p
+    a(href='/manager/stocks', class='button') View Stock
+    a(href='/manager/dashboard', class='button') Back to Dashboard

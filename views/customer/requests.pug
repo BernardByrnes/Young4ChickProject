@@ -1,0 +1,33 @@
+extends ../layouts/main
+
+block content
+  h1 My Requests
+  if requests.length
+    table
+      thead
+        tr
+          th Type
+          th Breed
+          th Quantity
+          th Farmer Type
+          th Status
+          th Created At
+          th Approved At
+          th Completed At
+      tbody
+        each request in requests
+          tr
+            td= request.type
+            td= request.breed
+            td= request.quantity
+            td= request.farmerType
+            td= request.status
+            td= request.createdAt.toLocaleDateString()
+            td= request.approvedAt ? request.approvedAt.toLocaleDateString() : '-'
+            td= request.completedAt ? request.completedAt.toLocaleDateString() : '-'
+  else
+    p No requests found.
+  p
+    a(href='/customer/request', class='button') Submit New Request
+  p
+    a(href='/customer/dashboard', class='button') Back to Dashboard

@@ -1,0 +1,16 @@
+extends ../layouts/main
+
+block content
+  h1 Login
+  if error
+    p.error= error
+  form(method='POST', action='/auth/login')
+    div
+      label(for='email') Email
+      input#email(name='email', type='email', required)
+    div
+      label(for='password') Password
+      input#password(name='password', type='password', required)
+    button(type='submit') Login
+  p
+    a(href='/auth/register') Don't have an account? Register

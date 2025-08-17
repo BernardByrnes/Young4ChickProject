@@ -1,0 +1,30 @@
+extends ../layouts/main
+
+block content
+  h1 Submit Request
+  if error
+    p.error= error
+  form(method='POST', action='/customer/request')
+    div
+      label(for='type') Type
+      select#type(name='type', required)
+        option(value='layers') Layers
+        option(value='broilers') Broilers
+    div
+      label(for='breed') Breed
+      select#breed(name='breed', required)
+        option(value='local') Local
+        option(value='exotic') Exotic
+    div
+      label(for='quantity') Quantity
+      input#quantity(name='quantity', type='number', required)
+    div
+      label(for='farmerType') Farmer Type
+      select#farmerType(name='farmerType', required)
+        option(value='starter') Starter
+        option(value='experienced') Experienced
+    button(type='submit') Submit Request
+  p
+    a(href='/customer/requests', class='button') View My Requests
+  p
+    a(href='/customer/dashboard', class='button') Back to Dashboard

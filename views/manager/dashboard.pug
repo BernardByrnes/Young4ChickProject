@@ -1,0 +1,13 @@
+extends ../layouts/main
+
+block content
+  h1 Manager Dashboard
+  if notifications.length
+    each notification in notifications
+      div.notification
+        p= notification.message
+  p
+    a(href='/manager/approve', class='button') Approve Requests
+    a(href='/manager/requests', class='button') View Requests
+    a(href='/manager/stock', class='button') Add Stock
+    a(href='/manager/stocks', class='button') View Stock

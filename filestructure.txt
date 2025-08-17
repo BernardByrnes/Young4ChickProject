@@ -1,0 +1,49 @@
+young4chicks-project/
+├── node_modules/          // Auto-generated
+├── public/                // Static files
+│   ├── css/
+│   │   └── styles.css     // Global CSS
+│   ├── js/
+│   │   └── main.js        // Client-side JS (e.g., form validations)
+│   └── images/            // Logos/icons (add as needed)
+├── views/                 // Pug templates
+│   ├── layouts/
+│   │   └── main.pug       // Base layout (header/footer)
+│   ├── partials/
+│   │   ├── header.pug     // Navbar with role-based links
+│   │   └── footer.pug     // Footer
+│   ├── auth/
+│   │   ├── login.pug      // Login form
+│   │   └── register.pug   // Customer registration
+│   ├── customer/
+│   │   ├── dashboard.pug  // Track requests/profile
+│   │   └── request.pug    // Chick request form
+│   ├── rep/
+│   │   ├── dashboard.pug  // View/submit requests
+│   │   └── new-request.pug// Form for recording calls
+│   ├── manager/
+│   │   ├── dashboard.pug  // View stocks, requests, farmers
+│   │   ├── stock.pug      // Add/update stock form
+│   │   └── approve.pug    // Approve requests
+│   └── error.pug          // Generic error page
+├── models/                // DB schemas (MongoDB/Mongoose)
+│   ├── User.js            // Users (customers, reps, manager with roles)
+│   ├── Stock.js           // Chick stocks
+│   └── Request.js         // Chick requests/sales
+├── controllers/           // Business logic
+│   ├── authController.js  // Login/register
+│   ├── customerController.js // Customer actions
+│   ├── repController.js   // Rep actions
+│   └── managerController.js // Manager actions
+├── routes/                // Express routes
+│   ├── auth.js            // /login, /register
+│   ├── customer.js        // /customer/*
+│   ├── rep.js             // /rep/*
+│   └── manager.js         // /manager/*
+├── config/                // Config files
+│   └── db.js              // MongoDB connection
+├── middleware/            // Custom middleware
+│   └── auth.js            // Role-based auth checks
+├── app.js                 // Main Express app setup
+├── package.json           // Dependencies
+└── .gitignore             // Ignore node_modules, .env, etc.

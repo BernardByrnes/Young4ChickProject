@@ -1,0 +1,26 @@
+extends ../layouts/main
+
+block content
+  h1 Record New Request
+  if error
+    p.error= error
+  form(method='POST', action='/rep/request')
+    label(for='customerEmail') Customer Email:
+    input(type='email', id='customerEmail', name='customerEmail', required)
+    label(for='type') Chick Type:
+    select(id='type', name='type', required)
+      option(value='layers') Layers
+      option(value='broilers') Broilers
+    label(for='breed') Breed:
+    select(id='breed', name='breed', required)
+      option(value='local') Local
+      option(value='exotic') Exotic
+    label(for='quantity') Quantity:
+    input(type='number', id='quantity', name='quantity', min='1', max='500', required)
+    label(for='farmerType') Farmer Type:
+    select(id='farmerType', name='farmerType', required)
+      option(value='starter') Starter
+      option(value='returning') Returning
+    button(type='submit') Record Request
+  p
+    a(href='/rep/dashboard') Back to Dashboard

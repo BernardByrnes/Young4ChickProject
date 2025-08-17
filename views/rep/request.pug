@@ -1,0 +1,32 @@
+extends ../layouts/main
+
+block content
+  h1 Record Request
+  if error
+    p.error= error
+  form(method='POST', action='/rep/request')
+    div
+      label(for='type') Type
+      select#type(name='type', required)
+        option(value='') Select Type
+        option(value='layers') Layers
+        option(value='broilers') Broilers
+    div
+      label(for='breed') Breed
+      select#breed(name='breed', required)
+        option(value='') Select Breed
+        option(value='local') Local
+        option(value='exotic') Exotic
+    div
+      label(for='quantity') Quantity
+      input#quantity(name='quantity', type='number', min='1', required)
+    div
+      label(for='farmerType') Farmer Type
+      select#farmerType(name='farmerType', required)
+        option(value='') Select Farmer Type
+        option(value='starter') Starter
+        option(value='experienced') Experienced
+    button(type='submit') Record Request
+  p
+    a(href='/rep/requests', class='button') View Requests
+    a(href='/rep/dashboard', class='button') Back to Dashboard

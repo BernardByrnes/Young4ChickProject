@@ -1,0 +1,50 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/styles.css')
+    script(src='/js/main.js')
+  body
+    header
+      nav
+        ul
+          li
+            a(href='/') Home
+          if user
+            if user.role === 'customer'
+              li
+                a(href='/customer/dashboard') Dashboard
+              li
+                a(href='/customer/request') Submit Request
+              li
+                a(href='/customer/requests') My Requests
+            else if user.role === 'rep'
+              li
+                a(href='/rep/dashboard') Dashboard
+              li
+                a(href='/rep/request') Record Request
+              li
+                a(href='/rep/requests') View Requests
+              li
+                a(href='/rep/complete') Complete Requests
+            else if user.role === 'manager'
+              li
+                a(href='/manager/dashboard') Dashboard
+              li
+                a(href='/manager/approve') Approve Requests
+              li
+                a(href='/manager/requests') All Requests
+              li
+                a(href='/manager/stock') Add Stock
+              li
+                a(href='/manager/stocks') View Stock
+            li
+              a(href='/auth/logout') Logout
+          else
+            li
+              a(href='/auth/login') Login
+            li
+              a(href='/auth/register') Register
+    main
+      block content
+    footer
+      p Young4ChickS &copy; 2025

@@ -1,0 +1,12 @@
+extends ../layouts/main
+
+block content
+  h1 Rep Dashboard
+  if notifications.length
+    each notification in notifications
+      div.notification
+        p= notification.message
+  p
+    a(href='/rep/request', class='button') Record Request
+    a(href='/rep/requests', class='button') View Requests
+    a(href='/rep/complete', class='button') Complete Requests

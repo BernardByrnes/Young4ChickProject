@@ -1,0 +1,18 @@
+extends ../layouts/main
+
+block content
+  h1 Customer Dashboard
+  p Welcome, #{user.name}!
+  p Email: #{user.email}
+  p Role: #{user.role}
+  if notifications.length
+    h2 Notifications
+    ul
+      each notification in notifications
+        li.notification(data-id=notification._id)= notification.message
+  p
+    a(href='/customer/request', class='button') Submit Request
+  p
+    a(href='/customer/requests', class='button') My Requests
+  p
+    a(href='/auth/logout', class='button') Logout
